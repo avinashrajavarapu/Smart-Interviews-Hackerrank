@@ -1,0 +1,12 @@
+import math
+def trailingzeros(n):
+    zeroes = 0
+    power = 5
+    while (n // power) != 0:
+        zeroes += n // power
+        power *= 5
+    return zeroes
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    print(trailingzeros(n))
