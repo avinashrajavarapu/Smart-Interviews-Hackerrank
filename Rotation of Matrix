@@ -1,0 +1,13 @@
+t = int(input())
+c = 1
+for _ in range(t):
+    print(f"Test Case #{c}:")
+    n = int(input())
+    z = []
+    for __ in range(n):
+        l = list(map(int, input().split()))[:n]
+        z.append(l)
+    result = map(list, zip(*z))
+    for r in result:
+        print(*r[::-1])
+    c += 1
