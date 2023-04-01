@@ -1,0 +1,13 @@
+def find_lcm_hcf(a, b):
+    n1 = a
+    n2 = b
+    while b:
+        a, b = b, a % b
+    hcf = a
+    return (n1*n2)//hcf, hcf
+
+t = int(input())
+for i in range(t):
+    a, b = map(int, input().split())
+    hcf, lcm = find_lcm_hcf(a, b)
+    print(hcf,lcm)
