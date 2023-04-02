@@ -1,0 +1,35 @@
+def spiralOrder(matrix):
+    rs= 0 
+    cs= 0
+    re = len(matrix)-1
+    ce = len(matrix[0])-1
+    m = len(matrix)
+    n=len(matrix[0])
+    ans = list()
+    
+    while len(ans) < m*n:
+        for i in range(cs,ce+1,1):
+            if len(ans) < m*n:
+                ans.append(matrix[rs][i])
+        rs+=1
+        for i in range(rs,re+1,1):
+            if len(ans) < m*n:
+                ans.append(matrix[i][ce])
+        ce-=1
+        for i in range(ce,cs-1,-1):
+            if len(ans) < m*n:
+                ans.append(matrix[re][i])
+        re-=1 
+        for i in range(re,rs-1,-1):
+            if len(ans) < m*n:
+                ans.append(matrix[i][cs])
+        cs+=1
+    return ans
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    mat = []
+    for i in range(n):
+        l = list(map(int, input().split()))[:n]
+        mat.append(l)
+    print(*spiralOrder(mat))
