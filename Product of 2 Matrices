@@ -1,0 +1,26 @@
+
+def multiply_matrices(mat1, mat2):
+    n1, m1 = len(mat1), len(mat1[0])
+    n2, m2 = len(mat2), len(mat2[0])
+    if m1 != n2:
+        return None
+    product = [[0 for _ in range(m2)] for _ in range(n1)]
+    for i in range(n1):
+        for j in range(m2):
+            for k in range(n2):
+                product[i][j] += mat1[i][k] * mat2[k][j]
+    
+    return product
+if __name__ == '__main__':
+    T = int(input())
+    for _ in range(T):
+        n1, m1 = map(int, input().split())
+        mat1 = [list(map(int, input().split())) for _ in range(n1)]
+        n2, m2 = map(int, input().split())
+        mat2 = [list(map(int, input().split())) for _ in range(n2)]
+        product = multiply_matrices(mat1, mat2)
+        if product is None:
+            print("Matrices cannot be multiplied")
+        else:
+            for row in product:
+                print(*row)
