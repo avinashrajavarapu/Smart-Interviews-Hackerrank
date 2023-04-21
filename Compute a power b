@@ -1,0 +1,14 @@
+MOD = 1000000007
+def aPowerb(a, b):
+    if (b==0):
+        return 1
+    result = aPowerb(a, b//2)
+    if(b %2 == 0):
+        return ((result%MOD)*(result%MOD))%MOD
+    else:
+        return (a*((result%MOD)*(result%MOD))%MOD)%MOD
+
+t = int(input())
+for _ in range(t):
+    a,b = map(int, input().split())
+    print(aPowerb(a, b)%MOD)
